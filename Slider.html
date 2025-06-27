@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                font-family:Arial, sans-serif;
+                text-align:center;
+                background-color:rgb(187, 158, 123);
+                padding:20px;
+            }
+            h2 {
+                color: #333;
+            }
+            .slider-container {
+                position:relative;
+                width: 600px;
+                margin: 30px auto;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0, 2);
+                border-radius: 10px;
+                overflow:hidden;
+            }
+            .slider-container img {
+                width: 100px;
+                height: 400px;
+                object-fit:cover;
+                display: block;
+            }
+            .buttons {
+                margin-top: 15px;
+            }
+            button {
+                padding: 10px 20px;
+                font-size: 16px;
+                margin: 0 10px;
+                cursor: pointer;
+                background-color: #007bff;
+                color:aliceblue;
+                border: none;
+                border-radius: 5px;
+            }
+            button:hover {
+                background-color: #0056b3;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Simple Image Slider</h2>
+        <p>Click next/previous to change the image</p>
+        <div class="buttons">
+            <img src="PARROT.jpg" id="slider-image">
+        </div>
+        <div class="buttons">
+            <button onclick="previmage()">Previous</button>
+            <button onclick="nextimage()">Next</button>
+        </div>
+        <script>
+            const images = [
+                "MOUNTAIN.jpg",
+                "DOG.JPG",
+                "SPACE.jpg"
+            ];
+            let index = 0;
+            const imgElement = document.getElementById("slider-image");
+            function nextimage() {
+                index = (index + 1) % images.length;
+                imgElement.src = images[index];
+            }
+            function previmage() {
+                index = (index - 1 + images.length) % images.length;
+                imgElement.src = images[index];
+            }
+        </script>
+    </body>
+</html>
